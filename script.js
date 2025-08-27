@@ -197,3 +197,45 @@ document.addEventListener("DOMContentLoaded", function() {
       "Voltar para a floresta",
       explorarVilarejo,
       voltarFloresta
+    );
+  }
+
+  function explorarVilarejo() {
+    etapa = 12;
+    atualizarHistoria(
+      "Você entrou no vilarejo e encontrou um mercado cheio de mercadorias exóticas.",
+      "Comprar algo",
+      "Sair e voltar à floresta",
+      comprarAlgo,
+      voltarFloresta
+    );
+  }
+
+  function comprarAlgo() {
+    etapa = 13;
+    atualizarHistoria(
+      "Você comprou um mapa que pode te ajudar a escapar da floresta.",
+      "Seguir o mapa",
+      "Voltar para a floresta",
+      seguirMapa,
+      voltarFloresta
+    );
+  }
+
+  function seguirMapa() {
+    etapa = 14;
+    atualizarHistoria(
+      "Você seguiu o mapa e encontrou uma saída da floresta.",
+      "Fim da aventura! Voltar ao início.",
+      "",
+      reiniciarHistoria,
+      reiniciarHistoria
+    );
+    reiniciar.style.display = 'inline-block';
+  }
+
+  reiniciar.addEventListener('click', reiniciarHistoria);
+
+  // Começar a aventura
+  reiniciarHistoria();
+});
